@@ -160,7 +160,7 @@ generate
         .DBITS     ( DBITS     ),
         .INIT_FILE ( INIT_FILE ) )
       ram_inst (
-        .rst_ni    ( rst_n_i   ),
+        .rst_ni    ( rst_ni    ),
         .clk_i     ( clk_i     ),
 
         .waddr_i   ( waddr_i   ),
