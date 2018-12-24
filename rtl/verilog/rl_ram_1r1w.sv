@@ -156,19 +156,20 @@ generate
       initial $display ("INFO   : No memory technology specified. Using generic inferred memory (%m)");
 
       rl_ram_1r1w_generic #(
-        .ABITS ( ABITS ),
-        .DBITS ( DBITS ) )
+        .ABITS     ( ABITS     ),
+        .DBITS     ( DBITS     ),
+        .INIT_FILE ( INIT_FILE ) )
       ram_inst (
-        .rst_ni  ( rst_ni   ),
-        .clk_i   ( clk_i    ),
+        .rst_ni    ( rst_n_i   ),
+        .clk_i     ( clk_i     ),
 
-        .waddr_i ( waddr_i  ),
-        .din_i   ( din_i    ),
-        .we_i    ( we_i     ),
-        .be_i    ( be_i     ),
+        .waddr_i   ( waddr_i   ),
+        .din_i     ( din_i     ),
+        .we_i      ( we_i      ),
+        .be_i      ( be_i      ),
 
-        .raddr_i ( raddr_i  ),
-        .dout_o  ( mem_dout )
+        .raddr_i   ( raddr_i   ),
+        .dout_o    ( mem_dout  )
       );
   end
 endgenerate
