@@ -66,7 +66,8 @@
 
 module rl_ram_1r1w_generic #(
   parameter ABITS      = 10,
-  parameter DBITS      = 32
+  parameter DBITS      = 32,
+  parameter INIT_FILE  = ""
 )
 (
   input                        rst_ni,
