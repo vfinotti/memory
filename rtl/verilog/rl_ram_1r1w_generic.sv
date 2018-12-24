@@ -123,6 +123,33 @@ endgenerate
   //per Altera's recommendations. Prevents bypass logic
   always @(posedge clk_i)
     dout_o <= mem_array[ raddr_i ];
+
+
+   //////////////////////////////////////////////////////////////////
+   //
+   // Memory initialization
+   //
+
+   integer j;
+   integer k;
+
+   initial
+     begin
+        if (!INIT_FILE)
+          begin
+             //  Initialize memory content to avoid X value on bus
+             for (j = 0; j < 2**ABITS; j=j+1)
+               begin
+                  for (k = 0; k < DBITS; k=k+1)
+                    begin
+                       mem_array[j][k] = 1'b0;
+                    end
+               end
+          end
+        else
+          begin
+             $readmemb(INIT_FILE, mem_array);
+          end
+     end
+
 endmodule
-
-
